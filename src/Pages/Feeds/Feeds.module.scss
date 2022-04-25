@@ -1,0 +1,30 @@
+.container {
+  background-color: #f3f2ef;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 13px;
+
+  .feed {
+    flex-grow: 1;
+    max-width: 650px;
+  }
+
+
+  .body {
+    padding: 1rem 3rem;
+    display: flex;
+    grid-gap: 1rem;
+    flex-direction: row;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      padding: 1rem !important;
+    }
+    @media screen and (max-width: 1200px) {
+      padding: 1rem;
+    }
+    @media screen and (min-width: 1300px) {
+      padding: 1rem 4rem;
+    }
+  }
+}

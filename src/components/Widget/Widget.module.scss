@@ -1,0 +1,42 @@
+.widget {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  grid-gap: 0.5rem;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 1rem;
+
+
+  li {
+    margin-left: 1rem;
+    font-size: 15px;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    p {
+      color: #5c5c5c;
+    }
+  }
+  button{
+    text-transform: capitalize;
+    color: #5c5c5c;
+    width: fit-content !important;
+    display: flex;
+    grid-gap: .5rem;
+    :hover{
+      background: gainsboro;
+    }
+  }
+
+  @media screen and (max-width: 1150px) {
+    display: none;
+  }
+}
