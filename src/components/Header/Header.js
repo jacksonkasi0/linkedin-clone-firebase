@@ -2,13 +2,25 @@ import React, { useState } from 'react';
 import style from './Header.module.scss';
 import { ReactComponent as Logo } from '../../assets/logo/logo.svg';
 
+import { MenuItem, Menu } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [icon, setIcon] = useState('home');
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
 
-  const handleClick = (val) => () => {
+
+  const handleClick = (val) => (e) => {
     setIcon(val);
+    if (val === 'user') {
+      setAnchorEl(e.target);
+      setOpen(!open)
+    }
+  };
+  const handleLogout = (e) => {
+    localStorage.removeItem('userID');
+    window.location.href = '/';
   };
 
   return (
@@ -65,6 +77,10 @@ const Header = () => {
         <div
           className={`${style.menuItem} ${icon === 'user' && style.active}`}
           onClick={handleClick('user')}
+          aria-controls={open ? 'demo-positioned-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          style={{color:"#0177B5"}}
         >
           <i className='fa-solid fa-user'></i>
           <p>Me</p>
@@ -78,6 +94,23 @@ const Header = () => {
           <p>Work</p>
         </div>
       </div>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClick('user')}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <MenuItem >Profile</MenuItem>
+        <MenuItem >My account</MenuItem>
+        <MenuItem sx={{color:"red"}} onClick={handleLogout}>Logout</MenuItem>
+      </Menu>
     </div>
   );
 };

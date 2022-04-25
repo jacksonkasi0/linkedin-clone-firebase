@@ -5,6 +5,7 @@ import { DateTime } from 'luxon';
 import { Avatar, IconButton } from '@mui/material';
 
 const Post = ({ profilePic, image, userName, timestamp, message }) => {
+
   return (
     <div className={style.post}>
       <div className={style.header}>
@@ -17,13 +18,14 @@ const Post = ({ profilePic, image, userName, timestamp, message }) => {
           </div>
 
         <IconButton className={style.menu} >
-          <i class='fa-solid fa-ellipsis'></i>
+          <i className='fa-solid fa-ellipsis'></i>
         </IconButton>
       </div>
 
+
       <div className={style.content}>
         {message && <p>{message}</p>}
-        <img src={image} alt={message} />
+        { image && <img src={image} alt={''} /> }
       </div>
 
       <div className={style.footer}>
@@ -32,7 +34,7 @@ const Post = ({ profilePic, image, userName, timestamp, message }) => {
           <p>Like</p>
         </div>
         <div>
-          <i class='fa-solid fa-message'></i>
+          <i className='fa-solid fa-message'></i>
           <p>Comment</p>
         </div>
         <div>

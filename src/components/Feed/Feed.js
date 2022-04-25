@@ -25,8 +25,6 @@ const Feed = () => {
     });
   }, []);
 
-  console.log(posts);
-
   return (
     <div>
       <PostUploader />

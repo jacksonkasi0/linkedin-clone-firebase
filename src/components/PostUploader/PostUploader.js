@@ -25,8 +25,6 @@ const PostUploader = () => {
   const [image, setImage] = useState('');
   const [progress, setProgress] = useState(0);
 
-  console.log(image);
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -35,12 +33,10 @@ const PostUploader = () => {
   };
 
   const handleSubmit = () => {
-    const metadata = {
-      contentType: 'image/*',
-    };
+ 
     const imgStorageRef = ref(storage, `images/${image.name}`);
 
-    const uploadTask = uploadBytesResumable(imgStorageRef, image, metadata);
+    const uploadTask = uploadBytesResumable(imgStorageRef, image);
     uploadTask.on(
       'state_changed',
       (snapshot) => {
@@ -153,7 +149,7 @@ const PostUploader = () => {
             <input
               id='file-upload'
               type='file'
-              accept='image/*'
+              accept='image/png, image/gif, image/jpeg'
               onChange={(e) => setImage(e.target.files[0])}
             />
             {image !== '' ? (

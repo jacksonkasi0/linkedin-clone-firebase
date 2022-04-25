@@ -5,11 +5,13 @@
   overflow: hidden;
   padding: 0.8rem;
 
+
   .postUploader {
     display: flex;
     justify-content: center;
     align-items: center;
     grid-gap: 0.8rem;
+
 
     :hover {
       background-color: #e9e8e8 !important;

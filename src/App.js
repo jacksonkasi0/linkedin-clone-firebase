@@ -10,7 +10,6 @@ import Login from './Pages/Login/Login';
 
 const App = () => {
   const user = useSelector((state) => state.auth.user);
-  console.log(user);
 
   return (
     <Router>
